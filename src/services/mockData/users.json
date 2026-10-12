@@ -6,6 +6,7 @@
     "LastName": { "type": "Text", "label": "Last Name", "required": true },
     "password": { "type": "Text", "label": "Password", "required": true },
     "AvatarUrl": { "type": "Text", "label": "Avatar Url" },
+    "nickname_c": { "type": "Text", "label": "Your name" },
     "nudges_c": { "type": "Boolean", "label": "Gentle nudges" },
     "nudgeFrequency_c": { "type": "Picklist", "label": "Nudge frequency", "values": "Daily,A few times a week,Weekly" },
     "hidePreviews_c": { "type": "Boolean", "label": "Hide note previews" }
@@ -22,6 +23,7 @@
       "password": "demo1234",
       "AvatarUrl": null,
       "IsOwner": true,
+      "nickname_c": "",
       "nudges_c": true,
       "nudgeFrequency_c": "A few times a week",
       "hidePreviews_c": false,
