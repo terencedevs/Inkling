@@ -1,0 +1,63 @@
+{
+    "_meta": {
+        "Name": {
+            "type": "Text",
+            "label": "Full Name",
+            "required": true
+        },
+        "Email": {
+            "type": "Email",
+            "label": "Email Address",
+            "required": true
+        },
+        "FirstName": {
+            "type": "Text",
+            "label": "First Name",
+            "required": true
+        },
+        "LastName": {
+            "type": "Text",
+            "label": "Last Name",
+            "required": true
+        },
+        "password": {
+            "type": "Password",
+            "label": "Password",
+            "required": true
+        },
+        "AvatarUrl": {
+            "type": "Text",
+            "label": "Avatar Url"
+        }
+    },
+    "records": [{
+            "Id": "a41c9d27-5e8f-4b06-9c3a-d7f218e64b90",
+            "userId": "a41c9d27-5e8f-4b06-9c3a-d7f218e64b90",
+            "companyId": "5c1d8e46-3b9a-4f27-8d64-0a2e7b91c5d3",
+            "Name": "Demo Admin",
+            "FirstName": "Demo",
+            "LastName": "Admin",
+            "Email": "admin@demo.app",
+            "password": "demo1234",
+            "AvatarUrl": null,
+            "IsOwner": true,
+            "accounts": [{
+                    "userId": "a41c9d27-5e8f-4b06-9c3a-d7f218e64b90",
+                    "companyId": "5c1d8e46-3b9a-4f27-8d64-0a2e7b91c5d3",
+                    "companyName": "Demo Team",
+                    "companyUserId": 1,
+                    "isOwner": true,
+                    "profile": {
+                        "id": 1,
+                        "name": "Admin_c"
+                    },
+                    "companyOwner": {
+                        "name": "Demo Admin",
+                        "avatarUrl": null,
+                        "email": "admin@demo.app"
+                    }
+                }
+            ]
+        }
+    ]
+}

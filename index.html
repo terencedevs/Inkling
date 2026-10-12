@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-default="system">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyApp</title>
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <script>
+      // Apply the theme before first paint so the loader and the app share one background.
+      // data-theme-default mirrors APP_CONFIG.defaultTheme (the platform keeps it in sync).
+      (function () {
+        var d = document.documentElement, stored = null;
+        try { stored = localStorage.getItem('app-theme'); } catch (e) {}
+        var mode = stored || d.getAttribute('data-theme-default') || 'system';
+        var dark = mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        d.classList.toggle('dark', dark);
+      })();
+    </script>
+    <script defer src="%VITE_APPER_SDK_CDN_URL%"></script>
+    <style>
+      #app-loading { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: var(--background, #fff); color: var(--muted-foreground, #666); font: 14px/1.4 var(--font-sans, system-ui, sans-serif); }
+      #app-loading .ring { width: 28px; height: 28px; border-radius: 50%; border: 3px solid var(--border, #e5e5e5); border-top-color: var(--primary, #333); animation: app-spin .8s linear infinite; }
+      @keyframes app-spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <div id="root"><div id="app-loading"><div class="ring"></div><span id="app-loading-name"></span></div></div>
+    <script>document.getElementById('app-loading-name').textContent = document.title;</script>
+    <script>
+      // The boot loader stays until React mounts (SDK script + session). Say so after a few seconds
+      // instead of looking frozen; the whole block is removed with #root's children on first render.
+      (function () {
+        function note(text) { var el = document.getElementById('app-loading'); if (!el) return; var p = el.querySelector('.note'); if (!p) { p = document.createElement('span'); p.className = 'note'; p.style.cssText = 'font-size:12px;opacity:.7;max-width:22rem;text-align:center'; el.appendChild(p); } p.textContent = text; }
+        setTimeout(function () { note('Starting up\u2026 the first open can take a few seconds.'); }, 3000);
+        setTimeout(function () { note('Still loading. If this continues, check your connection and refresh.'); }, 12000);
+      })();
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
