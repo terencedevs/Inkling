@@ -228,8 +228,8 @@ export default function Home() {
           </div>
         ) : firstLoad ? (
           <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 xl:columns-4">
-            {[44, 32, 52, 36, 48, 40].map((h, i) => (
-              <Skeleton key={i} className="mb-4 w-full break-inside-avoid rounded-2xl" style={{ height: `${h * 4}px` }} />
+            {['h-44', 'h-32', 'h-52', 'h-36', 'h-48', 'h-40'].map((h, i) => (
+              <Skeleton key={i} className={cn('mb-4 w-full break-inside-avoid rounded-2xl', h)} />
             ))}
           </div>
         ) : rows.length === 0 ? (
